@@ -6,8 +6,8 @@ import { Row, Col, Container } from 'reactstrap';
 
 export default function App() {
 	return (
-		<div>
-			<Container>
+		<div >
+			<Container >
 				<Row>
 					<Col>
 						<MainTodo/>

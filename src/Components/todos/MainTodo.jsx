@@ -1,14 +1,14 @@
 /** @format */
 
 import React from 'react';
-import ListView from '../ListView/ListView';
+import ListViewCall from '../ListView/ListView';
 
 
 export default function MainTodo() {
 	return (
 		<div>
 			<h1 className='display-3 text-center my-5'>Stack Todos</h1>
-			<ListView todo={ todo } />
+			<ListViewCall todo={ todo } />
 		</div>
 	);
 }
