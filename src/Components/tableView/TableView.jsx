@@ -2,30 +2,34 @@
 
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { Button, ListGroup, ListGroupItem } from 'reactstrap';
+import { Button, ListGroup, ListGroupItem, Row, Table } from 'reactstrap';
 
 function List({ todo, toggleSelect, toggleComplete }) {
 	return (
-		<div>
-			<ListGroupItem>
+		<tr>
+			<td>
 				<input
 					type='checkbox'
 					id={todo.id}
 					checked={todo.isSelected}
 					onClick={() => toggleSelect(todo.id)}
 				/>
-				<div className='mx-3'>
-					<h4>{todo.text}</h4>
-					<p>{todo.time.toDateString()}</p>
-				</div>
+			</td>
+			<td>
+				<p>{todo.time.toDateString()}</p>
+			</td>
+			<td>
+				<h4>{todo.text}</h4>
+			</td>
+			<td>
 				<Button
-					className='ms-auto'
+					className='ms-auto py-1'
 					color={todo.isComplete ? 'denger' : 'success'}
 					onClick={() => toggleComplete(todo.id)}>
 					{todo.isComplete ? 'Completed' : 'Running'}
 				</Button>
-			</ListGroupItem>
-		</div>
+			</td>
+		</tr>
 	);
 }
 
@@ -37,12 +41,24 @@ List.propTypes = {
 
 export default function TableView({ todo, toggleSelect, toggleComplete }) {
 	return (
-		<div>
-			<ListGroup>
+		<Table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Date</th>
+					<th>Text</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
 				{todo.map((todo) => (
-					<List />
+					<List
+						todo={todo}
+						toggleSelect={toggleSelect}
+						toggleComplete={toggleComplete}
+					/>
 				))}
-			</ListGroup>
-		</div>
+			</tbody>
+		</Table>
 	);
 }
