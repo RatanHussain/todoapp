@@ -15,7 +15,7 @@ function ListView({ todo, toggleSelect, toggleComplete }) {
 			/>
 			<div className='mx-3'>
 				<h4>{todo.text}</h4>
-				<p>{todo.time}</p>
+				<p>{todo.time.toDateString()}</p>
 			</div>
 			<Button
 				className='ms-auto'
@@ -27,16 +27,29 @@ function ListView({ todo, toggleSelect, toggleComplete }) {
 	);
 }
 
-ListView.prototype = {
+ListView.propTypes = {
 	todo: PropTypes.object.isRequired,
 	toggleSelect: PropTypes.func.isRequired,
 	toggleComplete: PropTypes.func.isRequired,
 };
 
-export default function ListViewCall({ todo }) {
+export default function ListViewCall({ todo, toggleSelect, toggleComplete }) {
 	return (
 		<ListGroup>
-			<ListView todo={todo}/>
+			{todo.map((todo, i) => (
+				<ListView
+					key={todo.id}
+					todo={todo}
+					toggleComplete={toggleComplete}
+					toggleSelect={toggleSelect}
+				/>
+			))}
 		</ListGroup>
 	);
 }
+
+ListViewCall.propTypes = {
+	todo: PropTypes.object.isRequired,
+	toggleSelect: PropTypes.func.isRequired,
+	toggleComplete: PropTypes.func.isRequired,
+};
