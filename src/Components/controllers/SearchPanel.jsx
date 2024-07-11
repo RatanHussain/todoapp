@@ -8,7 +8,7 @@ export default function SearchPanel({turms,handleSearch,toggleForm}) {
               placeholder='Search here'
               className='me-3'
               value={turms}
-              onChange={(e)=> handleSearch(e)}
+              onChange={(e)=> handleSearch(e.target.value)}
           />
           <Button className='bg-success' onClick={toggleForm}>
               New
