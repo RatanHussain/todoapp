@@ -10,9 +10,9 @@ export default function BulkControler({
 }) {
 	return (
 		<ButtonGroup>
-			<Button color='success' onClick={clearSelected}>Clear Selected</Button>
-			<Button color='success' onClick={clearCompleted}>Clear Completed</Button>
-			<Button color='success' onClick={reset}>Reset</Button>
+			<Button color='danger' onClick={clearSelected}>Clear Selected</Button>
+			<Button color='danger' onClick={clearCompleted}>Clear Completed</Button>
+			<Button color='danger' onClick={reset}>Reset</Button>
 		</ButtonGroup>
 	);
 }

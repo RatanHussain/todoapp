@@ -129,6 +129,7 @@ export default function MainTodo() {
 				clearSelected={clearSelected}
 				clearCompleted={clearCompleted}
 				reset={reset}
+				filtered={filtered}
 			/>
 			{getView()}
 

@@ -17,6 +17,7 @@ export default function SearchControl({
 	view,
 	ViewHandler,
 	clickHandler,
+	filtered
 }) {
 	return (
 		<div>
@@ -25,9 +26,9 @@ export default function SearchControl({
 				handleSearch={handleSearch}
 				toggleForm={toggleForm}
 			/>
-			<Row className='my-4'>
+			<Row className='my-4 mx-auto d-flex'>
 				<Col md={{ size: 4 }}>
-					<FilterControler clickHandler={clickHandler} />
+					<FilterControler clickHandler={clickHandler} filtered={filtered} />
 				</Col>
 				<Col md={{ size: 4 }}>
 					<ViewControler view={view} ViewHandler={ViewHandler} />
